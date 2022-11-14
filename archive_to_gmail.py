@@ -262,7 +262,7 @@ def save_thread_to_gmail(tweet_id, sender_email, receiver_email, password):
     This is a twitter thread
     """
 
-    with open('tweet-html-for-gmail-template.html', 'rb') as f:
+    with open('tweet_html_for_gmail_template.html', 'rb') as f:
         html_template = f.read().decode('utf-8')
 
     thread_html_body, thread_media, thread_author = create_thread_html_for_gmail(tweet_id, 'test')
