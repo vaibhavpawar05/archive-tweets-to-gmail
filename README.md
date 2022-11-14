@@ -17,5 +17,5 @@ pip install snscrape requests
 Here are a couple of screenshots of how the threads look -
 
 ## License
-MIT 
+MIT License 
   
