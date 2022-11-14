@@ -3,10 +3,7 @@ This repo has the code to archive twitter threads especially the bookmarks to gm
 
 ## How to run
 - Clone the repo
-- Install the dependencies
-```bash
-pip install snscrape requests
-```
+- Install the dependencies `pip install snscrape requests`
 - Get the bookmarks.json for your Twitter bookmarks and save it in the repo folder
   - This can be done using the Twitter API V2 but it takes a lot of effort (i.e. set up an app with OAuth etc.) so I used a quick and dirty way
   - Log into your Twitter account in Chrome and open developer tools
@@ -16,6 +13,7 @@ pip install snscrape requests
 - Get the app password for the sender gmail account using the instructions in this Stackoverflow answer https://stackoverflow.com/a/73214197
 - Make the following changes to the `main.py` file
   - update the `sender_email` and `receiver_email`
+- Run `python main.py`
   
 Here are a couple of screenshots of how the threads look -
 
