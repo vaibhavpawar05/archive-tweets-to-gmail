@@ -1,5 +1,5 @@
 # archive-tweets-to-gmail
-This repo has the code to archive twitter threads especially the bookmarks to gmail. It saves a static html with all images to gmail so even if the tweets are deleted from Twitter, the saved threads in gmail will be unaffected. Since Gmail does not support videos in its html, only videos are included as a link.
+This repo has the code to archive twitter threads especially the bookmarks to gmail. It saves a static html with all images to gmail so even if the tweets are deleted from Twitter, the saved threads in gmail will be unaffected. Since Gmail does not support videos in its html, videos are included as a link.
 
 ## How to run
 - Clone the repo
@@ -13,7 +13,7 @@ This repo has the code to archive twitter threads especially the bookmarks to gm
 - Get the app password for the sender gmail account using the instructions in this Stackoverflow answer https://stackoverflow.com/a/73214197
 - Make the following changes to the `main.py` file
   - update the `sender_email` and `receiver_email`
-- Run `python main.py`
+- Run `python main.py`. It will ask you to enter the password for sender email account, type and press enter.
 
 Gmail has a daily limit on the numebr of emails one user can send so if you have > 1000 bookmarks, you will have to run this over multiple days (in chunks of < 1000 threads per day)
   
