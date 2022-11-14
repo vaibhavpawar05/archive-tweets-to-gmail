@@ -14,6 +14,8 @@ This repo has the code to archive twitter threads especially the bookmarks to gm
 - Make the following changes to the `main.py` file
   - update the `sender_email` and `receiver_email`
 - Run `python main.py`
+
+Gmail has a daily limit on the numebr of emails one user can send so if you have > 1000 bookmarks, you will have to run this over multiple days (in chunks of < 1000 threads per day)
   
 Here are a couple of screenshots of how the threads look -
 
