@@ -1,8 +1,6 @@
 import snscrape.modules.twitter as sntwitter
 import requests
 import re
-import uuid
-from bs4 import BeautifulSoup
 
 def download_file(url):
     r = requests.get(url)
@@ -131,7 +129,7 @@ def create_tweet_html_for_gmail(tweet, is_quoted=False, tweet_idx=0, test=True):
                         
     # quoted tweet
     if tweet.quotedTweet:
-        quote_block, quote_media = create_tweet_html_for_gmail(tweet.quotedTweet, assets_path, is_quoted=True, tweet_idx=0, test=test)
+        quote_block, quote_media = create_tweet_html_for_gmail(tweet.quotedTweet, is_quoted=True, tweet_idx=0, test=test)
         
     if is_quoted:
         # wrap all blocks within class:quoted-tweet
@@ -187,7 +185,9 @@ def create_tweet_html_for_gmail(tweet, is_quoted=False, tweet_idx=0, test=True):
                 """
             return tweet_html, tweet_media
 
-def create_thread_html_for_gmail(tweet_id, assets_path):
+def create_thread_html_for_gmail(tweet_id):
+    
+    # this function gets all the tweets from a thread given any tweet within that thread
     
     # get the scroll of the thread
     mode_scroll = sntwitter.TwitterTweetScraperMode.SCROLL
@@ -235,7 +235,7 @@ def create_thread_html_for_gmail(tweet_id, assets_path):
     thread_media = dict()
     thread_author = scroll_tweets[backward_idx].user
     for idx, tweet in enumerate(scroll_tweets[backward_idx:forward_idx+1]):
-        tweet_html, tweet_media = create_tweet_html_for_gmail(tweet, assets_path, is_quoted=False, tweet_idx=idx, test=False)
+        tweet_html, tweet_media = create_tweet_html_for_gmail(tweet, is_quoted=False, tweet_idx=idx, test=False)
         thread_media = {**thread_media, **tweet_media}
         thread_html = thread_html + '\n' + tweet_html
         
@@ -265,7 +265,7 @@ def save_thread_to_gmail(tweet_id, sender_email, receiver_email, password):
     with open('tweet_html_for_gmail_template.html', 'rb') as f:
         html_template = f.read().decode('utf-8')
 
-    thread_html_body, thread_media, thread_author = create_thread_html_for_gmail(tweet_id, 'test')
+    thread_html_body, thread_media, thread_author = create_thread_html_for_gmail(tweet_id)
     
     message["Subject"] = f"Twitter Thread by {thread_author}"
 
