@@ -16,6 +16,12 @@ pip install snscrape requests
   
 Here are a couple of screenshots of how the threads look -
 
+- Mobile
+<img src="mobile.jpg" width="200">
+
+- Web
+<img src="web.png" width="400">
+
 ## License
 MIT License 
   
