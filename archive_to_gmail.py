@@ -1,6 +1,10 @@
 import snscrape.modules.twitter as sntwitter
 import requests
 import re
+import smtplib, ssl
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.image import MIMEImage
 
 def download_file(url):
     r = requests.get(url)
